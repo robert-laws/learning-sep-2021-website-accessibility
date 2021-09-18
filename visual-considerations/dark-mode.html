@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen Readers</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      .dark-mode {
+        background-color: #000 !important;
+        color: #fff !important;
+      }
+
+      .light-mode {
+        background-color: #fff !important;
+        color: #000 !important;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: black;
+          color: white;
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        body {
+          background-color: white;
+          color: black;
+        }
+      }
+    </style>
+    <script>
+      const darkMode = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches;
+      console.log(darkMode);
+
+      window.onload = function () {
+        const myCheckBox = document.querySelector('#input');
+
+        if (darkMode) {
+          myCheckBox.checked = true;
+        }
+      };
+    </script>
+  </head>
+  <body class="main">
+    <header>
+      <ul>
+        <li><a href="../visual-considerations/index.html">&larr; back</a></li>
+      </ul>
+    </header>
+    <div id="container">
+      <h1>Exercise 5</h1>
+      <p>
+        For this exercise, read the user's dark/light mode preference and set
+        the background to either black or white. For extra credit, allow the
+        checkbox below to override that setting!
+      </p>
+      <label>
+        Enable Dark Mode
+        <input id="input" type="checkbox" />
+      </label>
+    </div>
+    <script>
+      const checkBox = document.querySelector('#input');
+      const docBody = document.querySelector('body');
+
+      checkBox.addEventListener('change', function () {
+        if (checkBox.checked) {
+          docBody.classList.add('dark-mode');
+          docBody.classList.remove('light-mode');
+        } else {
+          docBody.classList.add('light-mode');
+          docBody.classList.remove('dark-mode');
+        }
+      });
+    </script>
+  </body>
+</html>
