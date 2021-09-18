@@ -1,5 +1,7 @@
 # Learning - September 2021 - Website Accessibility
 
+Code-along with course Website Accessibility, v2 by John Kuperman from Frontend Masters.
+
 ## Foundational Concepts
 
 Related fields but not exactly accessibility:
